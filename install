@@ -50,9 +50,8 @@ chmod +x ~/.dotfiles/scripts/*.sh
 # sourcing variables and replacing var values on files
 source ~/.dotfiles/config/vars
 tmpfile=$(mktemp)
-cat ~/.dotfiles/gitconfig | envsubst | tee "$tmpfile" &&  mv "$tmpfile" ~/.dotfiles/gitconfig
-cat ~/.dotfiles/bash_aliases | envsubst | tee "$tmpfile" &&  mv "$tmpfile" ~/.dotfiles/bash_aliases
-rm tmpfile
+cat ~/.dotfiles/gitconfig | envsubst > "$tmpfile" &&  mv "$tmpfile" ~/.dotfiles/gitconfig
+cat ~/.dotfiles/bash_aliases | envsubst > "$tmpfile" &&  mv "$tmpfile" ~/.dotfiles/bash_aliases
 
 echo 'Configuring apps'
 ~/.dotfiles/scripts/conky_config.sh
