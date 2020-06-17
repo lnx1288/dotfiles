@@ -23,10 +23,14 @@ sudo apt install -y vim curl tmux git bash-completion
 
 How to get a development env up and running
 
+1. Create a vars file within the config folder:
+
 ```
 cd
 git clone https://github.com/lnx1288/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
+** Fill in the config/vars file **
+vim config/vars
 ** Change needed script parameters **
 ./install
 ./install-root
@@ -35,5 +39,4 @@ mv dotfiles .dotfiles && cd .dotfiles
 
 Forked from the work started by:
 
-* **Aristides Gonzalez** - *Initial work* - [Cello1500](https://github.com/cello1500)
-
+* **Aristides Gonzalez** - *based on the initial work by* - [Cello1500](https://github.com/cello1500)
