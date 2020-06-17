@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+declare -a exclusion=(install install-root scripts config original_backup README.md TODO)
+
+in_array() {
+    local haystack=${1}[@]
+    local needle=${2}
+    for i in ${!haystack}; do
+        if [[ ${i} == ${needle} ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+shopt -s nullglob
+
+# making a backup of existing files in .dotfiles to .dotfiles/original_backup
+echo 'Making a backup to .dotfiles/original_backup '
+for f in ~/.dotfiles/*
+do
+	filename=${f##*/}
+	if in_array exclusion $filename; then
+		continue
+	fi
+	if [ -e ~/.$filename ] && [ ! -L ~/.$filename ]; then
+		mkdir -p ~/.dotfiles/original_backup
+		mv ~/.$filename ~/.dotfiles/original_backup/
+	fi
+
+	ln -fsv $f ~/.$filename
+done
+
+# create an ssh keys in case we don't have them yet
+echo "Creating SHH keys if not found..."
+if [ ! -e ~/.ssh/id_rsa ]; then
+	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -q -f ~/.ssh/id_rsa -N "" > /dev/null
+  echo '...main SSH key created'
+fi
+if [ ! -e ~/.ssh/id_rsa_personal ]; then
+  echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -q -f ~/.ssh/id_rsa_personal -N "" > /dev/null
+  echo '...personal SSH key created'
+fi
+
+# Installing required apps
+echo 'Installing apps'
+chmod +x ~/.dotfiles/scripts/*.sh
+~/.dotfiles/scripts/app_install.sh
+
+echo 'Configuring apps'
+source ~/.dotfiles/config/vars
+~/.dotfiles/scripts/conky_config.sh

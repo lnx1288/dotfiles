@@ -1,0 +1,5 @@
+export USERNAME=''
+export USER=''
+export EMAIL=''
+export WORK_USER=''
+export WORK_EMAIL=''
