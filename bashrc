@@ -148,5 +148,5 @@ fi
 # Disable the console freezing with CTRL-S
 stty -ixon
 
-#source ~/.git-completion.bash
-#source ~/.git-prompt.sh
+# Sourcing Git vars
+source ~/.dotfiles/config/git/vars

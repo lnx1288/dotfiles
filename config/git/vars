@@ -1,0 +1,6 @@
+# Git vars
+export GIT_USER=''
+export GIT_EMAIL=''
+export GIT_USERNAME=''
+export GIT_WORK_USER=''
+export GIT_WORK_EMAIL=''
