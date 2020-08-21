@@ -28,22 +28,20 @@ function snap_install {
 
 # Basics
 install firefox
+install opera-stable
+install google-chrome-stable
 install clamav
 install clamtk
 install curl
 install git
 install htop
-install nmap
-install tmux
 install vim
 install virtualbox
 install virtualbox-ext-pack
 install gnome-tweak-tool
 install gnome-shell-extensions
-install google-chrome-stable
 install gparted
 install vlc
-install opera-stable
 install remmina
 install timeshift
 install qemu
@@ -58,7 +56,6 @@ snap_install pac-vs
 snap_install wps-office
 snap_install wps-office-multilang
 snap_install cmadison
-snap_install hexchat
 
 # Others
 sudo snap install atom --classic
