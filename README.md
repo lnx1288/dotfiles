@@ -23,14 +23,18 @@ sudo apt install -y vim curl tmux git bash-completion
 
 How to get a development env up and running
 
-1. Create a vars file within the config folder:
+1. Clone the repo and edit the vars file within the config folder:
 
 ```
 cd
 git clone https://github.com/lnx1288/dotfiles.git
 mv dotfiles .dotfiles && cd .dotfiles
-** Fill in the config/vars file **
 vim config/vars
+```
+
+2. Run the install scripts
+
+```
 ** Change needed script parameters **
 ./install
 ./install-root
