@@ -32,14 +32,10 @@ do
 done
 
 # create an ssh keys in case we don't have them yet
-echo "Creating SHH keys if not found..."
+echo "Importing SHH key from LP if not found..."
 if [ ! -e ~/.ssh/id_rsa ]; then
-	echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -q -f ~/.ssh/id_rsa -N "" > /dev/null
-  echo '...main SSH key created'
-fi
-if [ ! -e ~/.ssh/id_rsa_personal ]; then
-  echo -e  'y\n' | ssh-keygen -t rsa -b 4096 -q -f ~/.ssh/id_rsa_personal -N "" > /dev/null
-  echo '...personal SSH key created'
+	ssh-import-id $LP_ID
+  echo '...LP SSH key imported'
 fi
 
 # Installing required apps
