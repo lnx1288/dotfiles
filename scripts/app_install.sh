@@ -29,7 +29,6 @@ function snap_install {
 # Basics
 install curl
 install htop
-install vim
 
 # Snaps
 snap_install cmadison

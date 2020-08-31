@@ -47,3 +47,15 @@ chmod +x ~/.dotfiles/scripts/*.sh
 source ~/.dotfiles/config/git/vars
 tmpfile=$(mktemp)
 cat ~/.dotfiles/bash_aliases | envsubst > "$tmpfile" &&  mv "$tmpfile" ~/.dotfiles/bash_aliases
+
+# configuring useful work env stuff (scripts)
+for f in ~/.dotfiles/config/work-env/*
+do
+	filename=${f##*/}
+	if in_array exclusion $filename; then
+		continue
+	fi
+	mkdir ~/my_scripts
+  echo "Creating symbolic link for $f"
+	ln -fsv $f ~/my_scripts/$filename
+done
