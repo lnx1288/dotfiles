@@ -19,16 +19,16 @@ shopt -s nullglob
 echo 'Making a backup to .dotfiles/original_backup '
 for f in ~/.dotfiles/*
 do
-	filename=${f##*/}
-	if in_array exclusion $filename; then
+	FILENAME=${f##*/}
+	if in_array exclusion $FILENAME; then
 		continue
 	fi
-	if [ -e ~/.$filename ] && [ ! -L ~/.$filename ]; then
+	if [ -e ~/.$FILENAME ] && [ ! -L ~/.$FILENAME ]; then
 		mkdir -p ~/.dotfiles/original_backup
-		mv ~/.$filename ~/.dotfiles/original_backup/
+		mv ~/.$FILENAME ~/.dotfiles/original_backup/
 	fi
 
-	ln -fsv $f ~/.$filename
+	ln -fsv $f ~/.$FILENAME
 done
 
 # create an ssh keys in case we don't have them yet
@@ -39,7 +39,7 @@ if [ ! -e ~/.ssh/id_rsa ]; then
 fi
 
 # Installing required apps
-echo 'Installing apps'
+echo 'Installing apps...'
 chmod +x ~/.dotfiles/scripts/*.sh
 ~/.dotfiles/scripts/app_install.sh
 
@@ -49,13 +49,17 @@ tmpfile=$(mktemp)
 cat ~/.dotfiles/bash_aliases | envsubst > "$tmpfile" &&  mv "$tmpfile" ~/.dotfiles/bash_aliases
 
 # configuring useful work env stuff (scripts)
+SCRIPT_DIR='my-scripts'
+mkdir ~/$SCRIPT_DIR
 for f in ~/.dotfiles/config/work-env/*
 do
-	filename=${f##*/}
-	if in_array exclusion $filename; then
+	FILENAME=${f##*/}
+	if in_array exclusion $FILENAME; then
 		continue
 	fi
-	mkdir ~/my_scripts
-  echo "Creating symbolic link for $f"
-	ln -fsv $f ~/my_scripts/$filename
+  echo "Creating symbolic link and alias for $FILENAME"
+	ln -fsv $f ~/$SCRIPT_DIR/$FILENAME
+  chmod +x $f
+  echo "alias $(echo ${FILENAME/%'.sh'})=$HOME/$SCRIPT_DIR/$FILENAME" >> ~/.bash_aliases
 done
+source ~/.bash_aliases
