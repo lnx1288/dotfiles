@@ -2,18 +2,18 @@
 
 while getopts n:f: o; do
   case $o in
-    (f) file=$OPTARG;;
-    (n) casenumber=$OPTARG
+    (f) FILE=$OPTARG;;
+    (n) CASENUMBER=$OPTARG
   esac
 done
 
 cd ~
 
-if [ ! -d  ~/case-$casenumber ]
+if [ ! -d  ~/case-$CASENUMBER ]
 then
-    mkdir ~/case-$casenumber
+    mkdir ~/case-$CASENUMBER
 fi
 
-echo "Downloading '$file' from Case '$casenumber'"
+echo "Downloading '$FILE' from Case '$CASENUMBER'"
 
-sftp -i ~/.ssh/id_rsa alejandro.santoyo@canonical.com@files.support.canonical.com:/customers/Ericsson/$casenumber/$file /home/ubuntu/case-$casenumber/
+sftp -i ~/.ssh/id_rsa $GIT_WORK_EMAIL@files.support.canonical.com:/customers/Ericsson/$CASENUMBER/$FILE ~/case-$CASENUMBER/
