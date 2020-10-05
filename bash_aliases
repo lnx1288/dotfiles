@@ -9,3 +9,5 @@ alias ld='ls -ld'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
+
+alias s='grep -rn'
