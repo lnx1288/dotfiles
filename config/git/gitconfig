@@ -1,9 +1,9 @@
 [user]
-	name = '$GIT_USERNAME'
-	email = '$GIT_EMAIL'
+	name = "$GIT_USERNAME"
+	email = "$GIT_EMAIL"
 
 [github]
-	user = '$GIT_USER'
+	user = "$GIT_USER"
 
 [alias]
 	exec = ! "exec"
@@ -113,4 +113,4 @@
 [difftool]
 	prompt = false
 [gitreview]
-	username = '$GIT_USER'
+	username = "$GIT_USER"
