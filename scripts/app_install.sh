@@ -27,11 +27,9 @@ function snap_install {
 }
 
 # Basics
-install firefox
 install clamav
 install clamtk
 install curl
-install git
 install htop
 install nmap
 install tmux
@@ -55,10 +53,7 @@ install conky-all
 
 # Snaps
 snap_install pac-vs
-snap_install wps-office
-snap_install wps-office-multilang
 snap_install cmadison
-snap_install hexchat
 
 # Others
 sudo snap install atom --classic
