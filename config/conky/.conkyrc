@@ -1,5 +1,5 @@
 conky.config = {
-	
+
 	update_interval = 1,
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,
@@ -64,13 +64,13 @@ $membar
 
 ${font sans-serif:bold:size=10}DISK USAGE ${hr 2}
 ${font sans-serif:normal:size=8}Root $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
-${font sans-serif:normal:size=8}Data $alignc ${fs_used /mnt/Data} / ${fs_size /mnt/Data} $alignr ${fs_used_perc /mnt/Data}%
+#${font sans-serif:normal:size=8}Data $alignc ${fs_used /mnt/Data} / ${fs_size /mnt/Data} $alignr ${fs_used_perc /mnt/Data}%
 ${fs_bar /}
-${fs_bar /mnt/Data}
+#${fs_bar /mnt/Data}
 
 ${font Ubuntu:bold:size=10}NETWORK ${hr 2}
 ${font sans-serif:normal:size=8}Local IPs:${alignr}External IP:
 ${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g'}  ${alignr}${execi 1000  wget -q -O- http://ipecho.net/plain; echo}
-${font sans-serif:normal:size=8}Down: ${downspeed wlp2s0}  ${alignr}Up: ${upspeed wlp2s0} 
+${font sans-serif:normal:size=8}Down: ${downspeed wlp2s0}  ${alignr}Up: ${upspeed wlp2s0}
 ${color lightgray}${downspeedgraph wlp2s0 80,130 } ${alignr}${upspeedgraph wlp2s0 80,130 }$color
 ]];
