@@ -45,7 +45,9 @@ done
 # Installing required apps
 echo 'Installing apps'
 chmod +x ~/.dotfiles/scripts/*.sh
-~/.dotfiles/scripts/app_install.sh
+for s in $(ls ~/.dotfiles/scripts/); do
+  ~/.dotfiles/scripts/$s
+done
 
 # sourcing variables and replacing var values on files
 source ~/.dotfiles/config/git/vars
