@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Install VS Code plugins
+# VS Code configuration
 
 if ! command -v code &> /dev/null
 then
     echo "ERROR: VS Code cannot be found. Please install VS Code."
 else
+    # Install VS Code plugins
     code --install-extension 13xforever.language-x86-64-assembly
     code --install-extension ban.spellright
     code --install-extension donjayamanne.githistory
@@ -26,4 +27,8 @@ else
     code --install-extension streetsidesoftware.code-spell-checker-spanish
     code --install-extension waderyan.gitblame
     code --install-extension yzhang.markdown-all-in-one
+
+    # VS Code as default diff tool
+    git config --global diff.tool vscode
+    git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'  
 fi
