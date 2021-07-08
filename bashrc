@@ -150,3 +150,6 @@ stty -ixon
 
 # Sourcing Git vars
 source ~/.dotfiles/config/git/vars
+
+# Changing the default terminal window size
+resize -s 32 110
