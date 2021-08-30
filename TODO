@@ -1,6 +1,1 @@
 - Browser extensions
-- Add new terminal default size 110x32
-- Add VS code install instructions
-- Add VS Code config as default Git editor, difftool, and mergetool 
-(see https://roboleary.net/vscode/2020/09/15/vscode-git.html)
-- Automate VS Code plugin install (from backup?)
