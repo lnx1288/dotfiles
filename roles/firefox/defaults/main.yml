@@ -1,0 +1,39 @@
+---
+firefox_home: ~/.mozilla/firefox
+
+firefox: {}
+#  - name: alice
+#    extensions:
+#      - random-agent-spoofer
+#  - name: bob
+#    extensions: []
+
+firefox_profiles:
+  default:
+    extensions:
+      - "uBlock Origin"
+      - "Privacy Badger"
+      - "HTTPS Everywhere"
+      - "Bitwarden - Free Password Manager"
+      - "Firefox Multi-Account Containers"
+      - "GNOME Shell integration"
+      - "GSConnect"
+    preferences:
+      datareporting.healthreport.uploadEnabled: false
+      datareporting.healthreport.service.enabled: false
+      datareporting.policy.dataSubmissionEnabled: false
+      network.cookie.cookieBehavior: 1
+      network.dns.disablePrefetch: true
+      network.predictor.enabled: false
+      network.prefetch-next: false
+      privacy.donottrackheader.enabled: true
+      privacy.clearOnShutdown.downloads: false
+      privacy.clearOnShutdown.formdata: false
+      privacy.clearOnShutdown.history: false
+      privacy.clearOnShutdown.offlineApps: true
+      privacy.clearOnShutdown.siteSettings: true
+      privacy.history.custom: true
+      privacy.sanitize.sanitizeOnShutdown: true
+      signon.rememberSignons: false
+      toolkit.crashreporter.enabled: false
+

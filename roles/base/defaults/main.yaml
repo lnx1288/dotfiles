@@ -1,0 +1,21 @@
+base_packages:
+  - vim 
+  - git 
+  - curl 
+  - wget
+  - tree
+  - htop
+  - jq
+  - lsof
+  - rsync
+  - apt-transport-https 
+  - ca-certificates
+  - gnupg-agent
+  - clamav
+  - clamtk
+  - tmux
+  - gnome-tweak-tool
+  - gnome-shell-extensions
+  - vlc
+  - remmina
+  - timeshift

@@ -1,0 +1,9 @@
+- name: Setup local machine
+  hosts: all
+  roles:
+    - base
+    - dotfiles
+    - vscodium
+    - firefox
+    - chrome
+    - virtualization

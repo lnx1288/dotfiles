@@ -1,0 +1,16 @@
+- name: Adding Chrome apt signing key
+  apt_key:
+    url: "https://dl.google.com/linux/linux_signing_key.pub"
+    state: present
+
+- name: Adding Chrome repo into sources list
+  apt_repository:
+    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
+
+- name: Installing google-chrome-stable
+  apt:
+    name: "google-chrome-stable"
+    state: latest
+    update_cache: true

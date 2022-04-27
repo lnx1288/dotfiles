@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-sudo ln -sfv ~/.dotfiles/bashrc /root/.bashrc
-sudo ln -sfv ~/.vim /root/.vim
-sudo ln -sfv ~/.vimrc /root/.vimrc

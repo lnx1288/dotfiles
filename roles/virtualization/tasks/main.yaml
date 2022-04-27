@@ -1,0 +1,51 @@
+- name: Check host CPU virtualization support
+  block:
+    - name: Check host CPU required instruction set
+      command: "egrep -c '(vmx|svm)' /proc/cpuinfo"
+      register: cpuinfo_output
+      failed_when: cpuinfo_output.stdout == "0"
+  rescue:
+    - name: Print error message
+      debug:
+        msg: "Host CPU doesn't support virtualization"
+  tags: 
+    - 'skip_ansible_lint'
+    - hypervisor
+
+- name: Check host CPU arch
+  block:
+    - name: Check if host CPU is 64-bit
+      command: "egrep -c ' lm ' /proc/cpuinfo"
+      changed_when: no
+      register: bitinfo_output
+      failed_when: bitinfo_output.stdout == "0"
+  rescue:
+    - name: Print error message
+      debug:
+        msg: "Host CPU is not 64-bit"
+  tags: 
+    - 'skip_ansible_lint'
+    - hypervisor
+
+- name: Install virtualization tooling
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ virtualization_packages }}"
+  tags:
+    - hypervisor
+
+- name: Setting up {{ ansible_user }} libvirt/kvm group membership 
+  user:
+    name: "{{ ansible_user }}"
+    groups: libvirt,kvm
+    append: yes
+  tags:
+    - hypervisor
+
+- name: Sync uvtool images
+  command: "uvt-simplestreams-libvirt sync release={{ item }} arch={{ img_arch }}"
+  with_items: "{{ uvtool_images }}"
+  ignore_errors: yes
+  tags:
+    - hypervisor

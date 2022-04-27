@@ -1,0 +1,42 @@
+---
+- name: Adding GPG key of the VSCodium repo
+  shell: |
+    "wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg"
+  tags:
+    - vscodium
+
+- name: "Adding VSCodium repo"
+  apt_repository:
+    repo: deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main
+    state: present
+  tags:
+    - vscodium
+
+- name: "Installing VSCodium"
+  apt:
+    name: codium
+    state: present
+  tags:
+    - vscodium
+
+- name: Setting up VSCode marketplace for VSCodium
+  template:
+    src: files/product.json
+    dst: "~/.config/VSCodium"
+
+
+- name: Installing VSCodium extensions
+  shell: codium --install-extension {{ item }}
+  loop:
+  - "{{ extensions }}"
+  tags:
+    - vscodium
+
+- name: Setting VSCodium as default diff tool (for git)
+  shell: |
+    git config --global diff.tool vscode
+    git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE' 
+  tags:
+    - vscodium

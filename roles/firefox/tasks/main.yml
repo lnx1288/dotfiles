@@ -1,0 +1,20 @@
+---
+- name: Installing Firefox (and other dependencies)
+  apt:
+    name: "{{ item }}"
+    state: present
+  ansible.builtin.debug:
+    msg: "{{ item }}"
+  loop:
+    - firefox
+    - python3-requests
+  tags: firefox
+
+- name: Configure profiles
+  include_tasks: configure_profile.yml
+  ansible.builtin.debug:
+    msg: "{{ firefox_profile.0 }} - {{ firefox_profile.1 }}"
+  loop: "{{ firefox_profiles | dictsort }}"
+  loop_control:
+    loop_var: firefox_profile
+  tags: firefox
