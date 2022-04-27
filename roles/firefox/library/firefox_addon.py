@@ -8,9 +8,9 @@ import os
 import shutil
 from tempfile import mkdtemp
 from urllib.parse import urlparse
-from ansible.module_utils.basic import *
 
 import requests
+from ansible.module_utils.basic import *
 
 
 class FirefoxExtension:

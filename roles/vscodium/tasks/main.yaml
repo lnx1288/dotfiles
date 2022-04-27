@@ -26,7 +26,6 @@
     src: files/product.json
     dst: "~/.config/VSCodium"
 
-
 - name: Installing VSCodium extensions
   shell: codium --install-extension {{ item }}
   loop:

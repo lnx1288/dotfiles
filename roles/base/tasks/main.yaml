@@ -11,6 +11,6 @@
     name: "{{ item }}"
     state: present
   loop:
-  - "{{ base_packages }}" 
+    - "{{ base_packages }}" 
   tags:
     - base 

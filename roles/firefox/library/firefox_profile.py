@@ -5,7 +5,9 @@ import os.path
 import shutil
 import subprocess
 from collections import OrderedDict
+
 from ansible.module_utils.basic import *
+
 
 class FirefoxConfigWrapper:
     """Wrapper around file object to remove spaces around .ini file delimiters.
@@ -83,7 +85,9 @@ class FirefoxProfiles:
 
     def create(self, name):
         command = "firefox --headless -no-remote -CreateProfile %s" % name
-        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(
+            command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
         (stdout, stderr) = p.communicate()
         if p.returncode != 0:
             raise Exception(stderr)

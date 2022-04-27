@@ -1,3 +1,4 @@
+---
 - name: Setup local machine
   hosts: all
   roles:

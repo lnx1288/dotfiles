@@ -10,7 +10,7 @@ other releases as well).
 Run:
 
 
-```
+```bash
 ./install.sh
 ```
 
