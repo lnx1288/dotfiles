@@ -1,3 +1,4 @@
+---
 virtualization_packages:
   - qemu-kvm
   - libvirt-daemon-system

@@ -1,3 +1,4 @@
+---
 - name: Check host CPU virtualization support
   block:
     - name: Check host CPU required instruction set
