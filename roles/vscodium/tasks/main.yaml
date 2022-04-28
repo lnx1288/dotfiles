@@ -29,7 +29,7 @@
 - name: Installing VSCodium extensions
   shell: codium --install-extension {{ item }}
   loop:
-  - "{{ extensions }}"
+    - "{{ extensions }}"
   tags:
     - vscodium
 

@@ -36,4 +36,3 @@ firefox_profiles:
       privacy.sanitize.sanitizeOnShutdown: true
       signon.rememberSignons: false
       toolkit.crashreporter.enabled: false
-
