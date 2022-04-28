@@ -3,7 +3,7 @@
 DOTFILES_DIR="${HOME}/.dotfiles"
 
 # update and pre-requisites 
-sudo apt update
+sudo apt-get update
 sudo apt-get install -y ansible
 
 # clone dotfiles repo
