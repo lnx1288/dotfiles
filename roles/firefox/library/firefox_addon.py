@@ -59,6 +59,7 @@ class FirefoxExtension:
 
 
 def main():
+
     fields = {
         "name": {"required": True, "type": "str"},
         "profile_path": {"required": True, "type": "str"},
@@ -68,6 +69,7 @@ def main():
             "type": "str",
         },
     }
+
     module = AnsibleModule(argument_spec=fields)
     profile_path = module.params["profile_path"]
 

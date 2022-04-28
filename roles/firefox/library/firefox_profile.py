@@ -111,7 +111,7 @@ def main():
     name = module.params["name"]
     path = profiles.get_path(name)
     changed = False
-    
+
     if module.params["state"] == "present" and profiles.get(name) is None:
         profiles.create(name)
         changed = True
