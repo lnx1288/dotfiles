@@ -21,8 +21,8 @@
     - vscodium
 
 - name: Setting up VSCode marketplace for VSCodium
-  template:
-    src: files/product.json
+  copy:
+    src: product.json
     dst: "~/.config/VSCodium"
 
 - name: Installing VSCodium extensions
