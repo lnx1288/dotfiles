@@ -1,0 +1,16 @@
+name: Test full dotfile-based server bootstrap
+
+on: push
+
+jobs:
+  build_and_test: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run dotfile playbooks
+        uses: actions/checkout@v3
+        
+      - name: Run bootstrap script
+        run: ./install.sh
+        env:
+          REPO: ${{ github.workspace }}
+          DEFAULT_BRANCH: devel
