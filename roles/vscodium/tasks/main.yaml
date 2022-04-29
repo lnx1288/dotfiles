@@ -5,6 +5,7 @@
     state: present
   tags:
     - vscodium
+    - desktop
 
 - name: "Adding VSCodium repo"
   apt_repository:
@@ -12,6 +13,7 @@
     state: present
   tags:
     - vscodium
+    - desktop
 
 - name: "Installing VSCodium"
   apt:
@@ -19,6 +21,7 @@
     state: present
   tags:
     - vscodium
+    - desktop
 
 - name: Setting up VSCode marketplace for VSCodium
   copy:
@@ -31,6 +34,7 @@
     - "{{ extensions }}"
   tags:
     - vscodium
+    - desktop
 
 - name: Setting VSCodium as default diff tool (for git)
   shell: |
@@ -38,3 +42,4 @@
     git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE' 
   tags:
     - vscodium
+    - desktop

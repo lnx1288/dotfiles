@@ -4,7 +4,9 @@
     update_cache: yes
     upgrade: dist
   tags:
-    - base 
+    - base
+    - server
+    - desktop 
 
 - name: Install base packages
   apt:
@@ -13,4 +15,6 @@
   loop:
     - "{{ base_packages }}" 
   tags:
-    - base 
+    - base
+    - server
+    - desktop

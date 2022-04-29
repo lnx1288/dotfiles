@@ -1,2 +1,5 @@
-[local]
+[desktop]
 localhost ansible_connection=local
+
+[server]
+# add any server (non-desktop machines) here

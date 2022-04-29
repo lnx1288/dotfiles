@@ -1,11 +1,23 @@
 ---
-- name: Setup local machine
+- name: Setup desktop machine
   become: true
-  hosts: all
+  hosts: desktop
+  tags:
+    - desktop
   roles:
     - base
     - dotfiles
     - vscodium
     - firefox
     - chrome
+    - virtualization
+
+- name: Setup server machine
+  become: true
+  hosts: server
+  tags:
+    - server
+  roles:
+    - base
+    - dotfiles
     - virtualization

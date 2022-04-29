@@ -10,8 +10,9 @@
       debug:
         msg: "Host CPU doesn't support virtualization"
   tags: 
-    - 'skip_ansible_lint'
-    - hypervisor
+    - virtualization
+    - desktop
+    - server
 
 - name: Check host CPU arch
   block:
@@ -25,28 +26,35 @@
       debug:
         msg: "Host CPU is not 64-bit"
   tags: 
-    - 'skip_ansible_lint'
-    - hypervisor
+    - virtualization
+    - desktop
+    - server
 
 - name: Install virtualization tooling
   package:
     name: "{{ item }}"
     state: latest
   with_items: "{{ virtualization_packages }}"
-  tags:
-    - hypervisor
+  tags: 
+    - virtualization
+    - desktop
+    - server
 
 - name: Setting up {{ ansible_user }} libvirt/kvm group membership 
   user:
     name: "{{ ansible_user }}"
     groups: libvirt,kvm
     append: yes
-  tags:
-    - hypervisor
+  tags: 
+    - virtualization
+    - desktop
+    - server
 
 - name: Sync uvtool images
   command: "uvt-simplestreams-libvirt sync release={{ item }} arch={{ img_arch }}"
   with_items: "{{ uvtool_images }}"
   ignore_errors: yes
-  tags:
-    - hypervisor
+  tags: 
+    - virtualization
+    - desktop
+    - server
