@@ -23,10 +23,16 @@
     - vscodium
     - desktop
 
+- name: Create a .config directory if needed
+  file:
+    path: ~/.config
+    state: directory
+    mode: '0755'
+
 - name: Setting up VSCode marketplace for VSCodium
   copy:
     src: product.json
-    dst: "~/.config/VSCodium"
+    dest: ~/.config/VSCodium
 
 - name: Installing VSCodium extensions
   shell: codium --install-extension {{ item }}
