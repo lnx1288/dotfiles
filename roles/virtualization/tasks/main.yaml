@@ -34,15 +34,16 @@
   package:
     name: "{{ item }}"
     state: latest
-  with_items: "{{ virtualization_packages }}"
+  loop: "{{ virtualization_packages|flatten(levels=1) }}"
+  when: cpuinfo_output.stdout != "0" and bitinfo_output.stdout != "0"
   tags: 
     - virtualization
     - desktop
     - server
 
-- name: Setting up {{ ansible_user }} libvirt/kvm group membership 
+- name: Setting up libvirt/kvm group membership 
   user:
-    name: "{{ ansible_user }}"
+    name: "{{ lookup('env', 'USER') }}"
     groups: libvirt,kvm
     append: yes
   tags: 
@@ -52,8 +53,8 @@
 
 - name: Sync uvtool images
   command: "uvt-simplestreams-libvirt sync release={{ item }} arch={{ img_arch }}"
-  with_items: "{{ uvtool_images }}"
-  ignore_errors: yes
+  loop: "{{ uvtool_images|flatten(levels=1) }}"
+  ignore_errors: true
   tags: 
     - virtualization
     - desktop
