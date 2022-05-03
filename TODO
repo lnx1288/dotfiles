@@ -8,4 +8,8 @@
     * Automate profile creation (check [this repo for pointers](https://github.com/mlangry/ansible-role-google-chrome))
     * Automate extension installation (check [this repo for pointers](https://github.com/mlangry/ansible-role-google-chrome))
     * Set up initial `master_preferences` file based on the template already available 
+  * VSCodium:
+    * VSCodium role CI checks are not working due to GH actions use of
+root user. So far `ignored_errors` didn't work nor OR'ing to /bin/true
+as a forceful bypass. Need to figure this one out.
 
