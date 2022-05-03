@@ -8,8 +8,6 @@
   tags: firefox
 
 - name: Install extensions
-  ansible.builtin.debug:
-    msg: "{{ extension }}"
   firefox_addon:
     name: "{{ extension }}"
     profile_path: "{{ create_profile.profile_path }}"
