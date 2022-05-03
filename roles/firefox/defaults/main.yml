@@ -11,13 +11,13 @@ firefox: {}
 firefox_profiles:
   default:
     extensions:
-      - "uBlock Origin"
-      - "Privacy Badger"
-      - "HTTPS Everywhere"
-      - "Bitwarden - Free Password Manager"
-      - "Firefox Multi-Account Containers"
-      - "GNOME Shell integration"
-      - "GSConnect"
+      - "ublock-origin"
+      - "privacy-badger17"
+      - "https-everywhere"
+      - "bitwarden-password-manager"
+      - "multi-account-containers"
+      - "gnome-shell-integration"
+      - "gsconnect"
     preferences:
       datareporting.healthreport.uploadEnabled: false
       datareporting.healthreport.service.enabled: false
