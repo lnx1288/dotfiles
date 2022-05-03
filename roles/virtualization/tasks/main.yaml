@@ -46,6 +46,7 @@
     name: "{{ lookup('env', 'USER') }}"
     groups: libvirt,kvm
     append: yes
+  ignore_errors: true
   tags: 
     - virtualization
     - desktop
