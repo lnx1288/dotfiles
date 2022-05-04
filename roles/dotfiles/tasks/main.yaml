@@ -8,23 +8,28 @@
     - desktop
     - server
 
+- name: Checking if .dotfiles is empty before backup
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.dotfiles/*"
+  register: dotfiles_is_empty
+
 - name: Backup existing .dotfiles
   copy:
     src: "{{ lookup('env', 'HOME') }}/.dotfiles"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles/old_backup"
-  when: dotfiles_dir.stat.exists
+  when: dotfiles_dir.stat.exists and dotfiles_is_empty.stat.exists == true
   tags:
     - dotfiles
     - desktop
     - server
 
-- name: Create symbolic links for *rc configs
-  become: true
-  file:
-    src: "{{ item }}"
-    dst: "{{ lookup('env', 'HOME') }}/.{{ item }}"
-    state: link
-  loop: "{{ lookup('fileglob', 'files/rc-files/', wantlist=True) }}"
+- name: Create symbolic links for configs
+  shell: |
+    pushd {{ lookup('env', 'HOME') }}/.dotfiles/configs
+    stow -R -t {{ lookup('env', 'HOME') }} */
+  register: myoutput
+  changed_when: myoutput.rc != 0
+  with_items: "{{ config_dirs }}"
   tags:
     - dotfiles
     - desktop

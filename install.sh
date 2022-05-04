@@ -14,3 +14,6 @@ cd "${DOTFILES_DIR}" || exit
 # run playbook(s)
 #ansible-playbook --ask-become-pass --ask-vault-pass -i hosts main.yaml
 ansible-playbook -i hosts main.yaml
+
+# Success
+exit 0

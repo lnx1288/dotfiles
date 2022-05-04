@@ -20,3 +20,4 @@ base_packages:
   - vlc
   - remmina
   - timeshift
+  - stow
