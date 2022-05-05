@@ -1,5 +1,6 @@
 ---
 - name: Installing Firefox (and other dependencies)
+  become: true
   apt:
     name: "{{ item }}"
     state: present

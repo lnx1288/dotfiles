@@ -1,6 +1,5 @@
 ---
 - name: Setup desktop machine
-  become: true
   hosts: desktop
   tags:
     - desktop
@@ -12,7 +11,6 @@
     - virtualization
 
 - name: Setup server machine
-  become: true
   hosts: server
   tags:
     - server

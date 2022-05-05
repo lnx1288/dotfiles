@@ -35,6 +35,7 @@
     dest: ~/.config/VSCodium
 
 - name: Installing VSCodium extensions
+  become: true
   shell: codium --install-extension {{ item }}
   loop:
     - "{{ extensions }}"

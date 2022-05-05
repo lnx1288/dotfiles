@@ -31,6 +31,7 @@
     - server
 
 - name: Install virtualization tooling
+  become: true
   package:
     name: "{{ item }}"
     state: latest
@@ -42,6 +43,7 @@
     - server
 
 - name: Setting up libvirt/kvm group membership 
+  become: true
   user:
     name: "{{ lookup('env', 'USER') }}"
     groups: libvirt,kvm

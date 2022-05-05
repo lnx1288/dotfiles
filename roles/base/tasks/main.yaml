@@ -1,5 +1,6 @@
 ---
 - name: Update and upgrade via apt
+  become: true
   apt:
     update_cache: yes
     upgrade: dist
@@ -9,6 +10,7 @@
     - desktop 
 
 - name: Install base packages
+  become: true
   apt:
     name: "{{ item }}"
     state: present
