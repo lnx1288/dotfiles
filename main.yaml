@@ -9,6 +9,7 @@
     - firefox
     - chrome
     - virtualization
+    - shell
 
 - name: Setup server machine
   hosts: server
@@ -18,3 +19,4 @@
     - base
     - dotfiles
     - virtualization
+    - shell
