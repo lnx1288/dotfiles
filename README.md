@@ -15,6 +15,7 @@ git clone https://github.com/lnx1288/dotfiles.git $HOME/.dotfiles
 cd $HOME/.dotfiles
 chmod +x install.sh
 ./install.sh
+sudo reboot
 ```
 
 This will install Ansible and will run the `main.yaml` playbook.

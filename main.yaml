@@ -5,11 +5,11 @@
     - desktop
   roles:
     - base
+    - shell
     - dotfiles
     - firefox
     - chrome
     - virtualization
-    - shell
 
 - name: Setup server machine
   hosts: server
@@ -17,6 +17,6 @@
     - server
   roles:
     - base
+    - shell
     - dotfiles
     - virtualization
-    - shell

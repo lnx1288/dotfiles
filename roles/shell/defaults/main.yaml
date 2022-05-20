@@ -1,5 +1,6 @@
 shell_packages:
   - shellcheck
+  - direnv
   - zsh
   - zsh-syntax-highlighting
   - zsh-autosuggestions
