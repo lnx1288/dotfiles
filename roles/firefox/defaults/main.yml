@@ -9,7 +9,7 @@ firefox: {}
 #    extensions: []
 
 firefox_profiles:
-  default:
+  lnx:
     extensions:
       - "ublock-origin"
       - "privacy-badger17"

@@ -4,6 +4,8 @@
   
   * Firefox:
     * Tweak a bit more the user preferences (hardening?), check [this repo](https://github.com/juju4/ansible-firefox-config)
+    * Mark profile as Default
+    * Enable installed extensions
   * Chrome:
     * Automate profile creation (check [this repo for pointers](https://github.com/mlangry/ansible-role-google-chrome))
     * Automate extension installation (check [this repo for pointers](https://github.com/mlangry/ansible-role-google-chrome))
