@@ -1,5 +1,6 @@
 ---
 - name: Adding GPG key of the VSCodium repo
+  become: true
   apt_key:
     url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
     state: present
@@ -8,6 +9,7 @@
     - desktop
 
 - name: "Adding VSCodium repo"
+  become: true
   apt_repository:
     repo: deb https://download.vscodium.com/debs vscodium main
     state: present
@@ -16,6 +18,7 @@
     - desktop
 
 - name: "Installing VSCodium"
+  become: true
   apt:
     name: codium
     state: present
@@ -29,22 +32,26 @@
     state: directory
     mode: '0755'
 
+- name: Create user settings directory
+  file:
+    state: directory
+    path: $HOME/.config/VSCodium/User
+    mode: '0750'
+
 - name: Setting up VSCode marketplace for VSCodium
   copy:
     src: product.json
-    dest: ~/.config/VSCodium
+    dest: $HOME/.config/VSCodium/User/VSCodium
 
 - name: Installing VSCodium extensions
-  become: true
-  shell: codium --install-extension {{ item }}
-  loop:
-    - "{{ extensions }}"
+  command: "codium --install-extension {{ item }}"
+  loop: "{{ extensions }}"
   tags:
     - vscodium
     - desktop
 
 - name: Setting VSCodium as default diff tool (for git)
-  shell: |
+  command: |
     git config --global diff.tool vscode
     git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE' 
   tags:
