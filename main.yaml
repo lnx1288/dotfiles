@@ -9,6 +9,7 @@
     - dotfiles
     - firefox
     - chrome
+    - vscodium
     - virtualization
 
 - name: Setup server machine
