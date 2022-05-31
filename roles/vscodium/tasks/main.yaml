@@ -28,7 +28,7 @@
 
 - name: Create a .config directory if needed
   file:
-    path: ~/.config
+    path: $HOME/.config
     state: directory
     mode: '0755'
 

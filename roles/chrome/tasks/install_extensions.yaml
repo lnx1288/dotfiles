@@ -1,0 +1,12 @@
+---
+- name: Create extension .json file
+  become: true
+  copy: 
+    src: store_url.json
+    dest: "{{ chrome_extensions_dir }}/{{ extension.id }}.json"
+    mode: 0755
+  loop: "{{ chrome_extensions | dict2items(key_name='name', value_name='id') }}"
+  loop_control:
+    loop_var: extension
+  tags:
+    - chrome

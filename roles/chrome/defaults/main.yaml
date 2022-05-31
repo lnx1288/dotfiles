@@ -1,2 +1,11 @@
 ---
-google_chrome_global_preference_file: /opt/google/chrome/master_preferences
+chrome_home: ~/.config/google-chrome
+chrome_extensions_dir: /opt/google/chrome/extensions
+chrome_extensions_url: https://clients2.google.com/service/update2/crx
+
+chrome_extensions:
+  privacy-badger: pkehgijcmpdhfbdbbnkijodmdjhbjlgp
+  https-everywhere: gcbommkclmclpchllfjekcdonpmejbdp
+  bitwarden-free-password-m: nngceckbapebfimnlniiiahkandclblb
+  tampermonkey: dhdgffkkebhmkfjojejmpbldmpobfkfo
+  grammarly-grammar-checker: kbfnbcaeplbcioakkpcpgfkobkghlhen

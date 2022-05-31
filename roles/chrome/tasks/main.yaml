@@ -27,3 +27,15 @@
   tags:
     - chrome
     - desktop
+
+- name: Create extensions directory if needed
+  become: true
+  file:
+    path: "{{ chrome_extensions_dir }}"
+    state: directory
+
+- name: Install extensions
+  include_tasks: install_extensions.yaml
+  tags:
+    - chrome
+    - desktop

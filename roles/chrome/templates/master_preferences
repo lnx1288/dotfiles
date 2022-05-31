@@ -44,7 +44,6 @@
     "verbose_logging": true
   },
   "first_run_tabs": [
-    "http://www.example.com",
     "http://welcome_page",
     "http://new_tab_page"
   ]
