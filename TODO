@@ -7,8 +7,6 @@
     * Mark profile as Default
     * Enable installed extensions
   * Chrome:
-    * Automate profile creation (check [this repo for pointers](https://github.com/mlangry/ansible-role-google-chrome))
-    * Automate extension installation (check [this repo for pointers](https://github.com/mlangry/ansible-role-google-chrome))
     * Set up initial `master_preferences` file based on the template already available 
   * VSCodium:
     * VSCodium role CI checks are not working due to GH actions use of
