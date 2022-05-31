@@ -40,8 +40,11 @@
     - chrome
     - desktop
 
-- name: Configure preferences
-  include_tasks: configure_preferences.yaml
+- name: Configure preferences from master_preferences template
+  copy:
+    src: master_preferences
+    dest: "{{ chrome_home }}/Default/Preferences"
+    mode: 0600
   tags:
     - chrome
     - desktop

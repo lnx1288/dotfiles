@@ -51,9 +51,9 @@
     - desktop
 
 - name: Setting VSCodium as default diff tool (for git)
-  command: |
-    git config --global diff.tool vscode
-    git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE' 
+  shell: |
+    git config --global diff.tool codium
+    git config --global difftool.codium.cmd 'code --wait --diff $LOCAL $REMOTE' 
   tags:
     - vscodium
     - desktop
