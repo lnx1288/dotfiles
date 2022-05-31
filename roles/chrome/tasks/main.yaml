@@ -28,11 +28,22 @@
     - chrome
     - desktop
 
+- name: Create Chrome config directory
+  file:
+    state: directory
+    path: "{{ chrome_home }}/Default"
+  tags:
+    - chrome
+    - desktop
+
 - name: Create extensions directory if needed
   become: true
   file:
     path: "{{ chrome_extensions_dir }}"
     state: directory
+  tags:
+    - chrome
+    - desktop
 
 - name: Install extensions
   include_tasks: install_extensions.yaml
@@ -45,6 +56,15 @@
     src: master_preferences
     dest: "{{ chrome_home }}/Default/Preferences"
     mode: 0600
+  tags:
+    - chrome
+    - desktop
+
+- name: Import bookmarks
+  copy:
+    src: bookmarks.html
+    dest: $HOME/.config/google-chrome/Default/bookmarks.html
+    mode: 0755
   tags:
     - chrome
     - desktop
