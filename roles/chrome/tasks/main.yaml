@@ -39,3 +39,9 @@
   tags:
     - chrome
     - desktop
+
+- name: Configure preferences
+  include_tasks: configure_preferences.yaml
+  tags:
+    - chrome
+    - desktop

@@ -28,7 +28,7 @@
     "show_on_first_run_allowed": false
   },
   "distribution": {
-    "import_bookmarks_from_file": "bookmarks.html",
+    "import_bookmarks_from_file": "~/.config/google-chrome/Default/bookmarks.html",
     "import_bookmarks": true,
     "import_history": true,
     "import_home_page": true,
@@ -44,7 +44,6 @@
     "verbose_logging": true
   },
   "first_run_tabs": [
-    "http://welcome_page",
     "http://new_tab_page"
   ]
 }

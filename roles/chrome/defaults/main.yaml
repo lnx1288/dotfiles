@@ -1,7 +1,6 @@
 ---
-chrome_home: ~/.config/google-chrome
+chrome_home: $HOME/.config/google-chrome
 chrome_extensions_dir: /opt/google/chrome/extensions
-chrome_extensions_url: https://clients2.google.com/service/update2/crx
 
 chrome_extensions:
   privacy-badger: pkehgijcmpdhfbdbbnkijodmdjhbjlgp

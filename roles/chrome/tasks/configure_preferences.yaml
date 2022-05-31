@@ -1,0 +1,6 @@
+---
+- name: Copy initial master_preferences file
+  copy:
+    src: master_preferences
+    dest: "{{ chrome_home }}/Default/Preferences"
+    mode: 0600
