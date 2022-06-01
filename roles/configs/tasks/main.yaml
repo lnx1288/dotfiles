@@ -1,6 +1,55 @@
 ---
-- name: Enabling minimize on click
-  shell: gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+- name: Install desktop machine packages
+  become: true
+  apt:
+    name: "{{ desktop_packages }}"
+    state: present
   tags:
     - configs
     - desktop
+
+- name: Enable UFW firewall
+  become: true
+  ufw:
+    state: enabled
+  tags:
+    - configs
+    - desktop
+
+- name: Copy wallpaper image
+  copy:
+    src: wallpaper.jpg
+    dest: $HOME/Pictures/wallpaper.jpg
+    mode: 0755
+  tags:
+    - configs
+    - desktop
+
+- name: Enabling minimize on click
+  command: gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+  tags:
+    - configs
+    - desktop
+
+- name: Set up wallpaper
+  command: gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/wallpaper.jpg
+  tags:
+    - configs
+    - desktop
+
+- name: Set up dark theme
+  command: gsettings set org.gnome.desktop.interface gtk-theme {{ gnome_theme }}
+  tags:
+    - configs
+    - desktop
+
+- name: Run apt cleanup commands
+  apt:
+    autoclean: yes
+    autoremove: yes
+  tags:
+    - configs
+    - desktop
+
+
+

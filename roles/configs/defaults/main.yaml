@@ -1,0 +1,16 @@
+desktop_packages:
+  - clamav
+  - clamtk
+  - gnome-tweaks
+  - gnome-tweak-tool
+  - gnome-shell-extensions
+  - firefox-gnome-shell
+  - vlc
+  - ubuntu-restricted-extras
+  - remmina
+  - timeshift
+  - tlp
+  - tlp-rdw
+  - openjdk-11-jdk
+
+gnome_theme: 'Yaru-dark'

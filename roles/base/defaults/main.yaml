@@ -12,12 +12,7 @@ base_packages:
   - apt-transport-https 
   - ca-certificates
   - gnupg-agent
-  - clamav
-  - clamtk
   - tmux
-  - gnome-tweak-tool
-  - gnome-shell-extensions
-  - vlc
-  - remmina
-  - timeshift
   - stow
+  - rar
+  - unrar
