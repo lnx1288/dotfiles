@@ -48,6 +48,7 @@
     name: "{{ lookup('env', 'USER') }}"
     groups: libvirt,kvm
     append: yes
+  when: cpuinfo_output.stdout != "0" and bitinfo_output.stdout != "0"
   ignore_errors: true
   tags: 
     - virtualization
@@ -57,6 +58,7 @@
 - name: Sync uvtool images
   command: "uvt-simplestreams-libvirt sync release={{ item }} arch={{ img_arch }}"
   loop: "{{ uvtool_images|flatten(levels=1) }}"
+  when: cpuinfo_output.stdout != "0" and bitinfo_output.stdout != "0"
   ignore_errors: true
   tags: 
     - virtualization
