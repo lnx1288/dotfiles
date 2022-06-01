@@ -7,7 +7,7 @@
     * Mark profile as Default
     * Enable installed extensions
   * Chrome:
-    * Set up initial `master_preferences` file based on the template already available 
+    * Fix bookmark import
   * VSCodium:
     * VSCodium role CI checks are not working due to GH actions use of
 root user. So far `ignored_errors` didn't work nor OR'ing to /bin/true
