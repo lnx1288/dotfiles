@@ -12,5 +12,7 @@ desktop_packages:
   - tlp
   - tlp-rdw
   - openjdk-11-jdk
+  - gparted
+  - wireshark
 
 gnome_theme: 'Yaru-dark'
