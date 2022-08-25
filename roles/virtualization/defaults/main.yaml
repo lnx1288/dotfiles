@@ -12,8 +12,9 @@ virtualization_packages:
 
 uvtool_images:
   #- trusty
-  - xenial
+  #- xenial
   - bionic
-  #- focal
+  - focal
+  - jammy
 
 img_arch: amd64  # uvtool images architecture
